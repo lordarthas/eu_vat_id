@@ -1,6 +1,6 @@
 # eu_vat_id
 
-Under construction crte to validate European Union business VAT IDs
+Under construction Rust crate to validate European Union business VAT IDs
 
 First objective: perform syntactic validation, which is enough for most.
 
