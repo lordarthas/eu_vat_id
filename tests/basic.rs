@@ -52,3 +52,9 @@ fn t_check_ok() {
 fn t_check_by_state_ok() {
     assert_eq!(eu_vat_id::check_by_state(TEST_IT_OK_LOCAL, TEST_IT_OK_STATE), true);
 }
+
+#[test]
+fn t_check_ok_gb1() {
+    assert_eq!(eu_vat_id::check("GBHA999"), true);
+}
+

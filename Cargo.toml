@@ -1,15 +1,15 @@
 [package]
 name = "eu_vat_id"
-description = "European Union VAT ID verification"
-version = "0.2.0"
+description = "European Union VAT ID validation/verification"
+version = "0.1.0"
 authors = ["Michele Beltrame <mb@italpro.net>"]
 repository = "https://github.com/lordarthas/eu_vat_id"
-keywords = ["vatid", "vat", "business", "fiscal", "europe"]
+keywords = ["vatid", "vat", "business", "fiscal", "european union"]
 categories = ["algorithms", "parsing"]
 license = "MPL-2.0"
 readme = "README.md"
 
 [dependencies]
 failure = "0.1.1"
-lazy_static = "1.0.1"
+lazy_static = "1.0.2"
 regex = "0.2.11"

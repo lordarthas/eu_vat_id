@@ -2,8 +2,9 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-//! This crate provides validation of EU *VAT ID*, which is the company
-//! registration number.
+//! This crate provides validation of European Union *VAT IDs*, which are
+//! (basically, even though there are exceptions) the company registration
+//! numbers within the EU.
 //! 
 //! All countries which have Value Added Tax have VAT IDs, so not only
 //! European Union states. This crate works with **EU VAT IDs only**.
@@ -89,9 +90,7 @@ pub fn check(vat_id: &str) -> bool {
 /// }
 /// ```
 pub fn check_by_state(local_vat_id: &str, state: &str) -> bool {
-    let mut vat_id = state.to_string();
-    vat_id.push_str(local_vat_id);
-    check(&vat_id)
+    check( &format!("{}{}", state, local_vat_id) )
 }
 
 /// Parses a VAT ID to see if it has a valid syntax. It's an offline check, so it doesn't guarantee the VAT ID exists.
