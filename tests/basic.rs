@@ -2,6 +2,8 @@
 extern crate eu_vat_id;
 
 const TEST_IT_OK            : &str = "IT00400770939";
+const TEST_IT_OK_STATE      : &str = "IT";
+const TEST_IT_OK_LOCAL      : &str = "00400770939";
 const TEST_INVALID          : &str = "3_4524DE";
 const TEST_INVALID_STATE    : &str = "XX1234";
 const TEST_INVALID_LOCAL    : &str = "IT00400";
@@ -11,8 +13,8 @@ fn t_parse_ok() {
     assert_eq!(
         eu_vat_id::parse(TEST_IT_OK).unwrap(),
         eu_vat_id::VATID {
-            state_iso       : String::from("IT"),
-            local_vat_id    : String::from("00400770939")
+            state_iso       : String::from(TEST_IT_OK_STATE),
+            local_vat_id    : String::from(TEST_IT_OK_LOCAL)
         }
     );
 }
@@ -44,4 +46,9 @@ fn t_parse_invalid_local() {
 #[test]
 fn t_check_ok() {
     assert_eq!(eu_vat_id::check(TEST_IT_OK), true);
+}
+
+#[test]
+fn t_check_by_state_ok() {
+    assert_eq!(eu_vat_id::check_by_state(TEST_IT_OK_LOCAL, TEST_IT_OK_STATE), true);
 }

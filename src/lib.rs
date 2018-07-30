@@ -63,7 +63,7 @@ lazy_static! {
 
 /// Check if a VAT ID has a valid syntax. It's an offline check, so it doesn't guarantee the VAT ID exists.
 /// 
-/// The function is case insensitive
+/// The function is case insensitive and expects a VAT ID beginning with the 2-letter EU state ISO code.
 ///
 /// # Examples
 /// 
@@ -72,11 +72,26 @@ lazy_static! {
 ///     println!("VAT ID is valid");
 /// }
 /// ```
-pub fn check(vat_id : &str) -> bool {
+pub fn check(vat_id: &str) -> bool {
     match parse(vat_id) {
         Ok(_vi)     => true,
         Err(_e)     => false
     }
+}
+
+/// Same as `check`, but expects a "local" VAT ID, with the state ISO code specified separately
+///
+/// # Examples
+/// 
+/// ```
+/// if eu_vat_id::check_by_state("00400770939", "IT") == true {
+///     println!("VAT ID is valid");
+/// }
+/// ```
+pub fn check_by_state(local_vat_id: &str, state: &str) -> bool {
+    let mut vat_id = state.to_string();
+    vat_id.push_str(local_vat_id);
+    check(&vat_id)
 }
 
 /// Parses a VAT ID to see if it has a valid syntax. It's an offline check, so it doesn't guarantee the VAT ID exists.
