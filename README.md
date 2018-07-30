@@ -1,7 +1,8 @@
 # eu_vat_id
 
-Under construction Rust crate to validate European Union business VAT IDs
+Rust crate to validate European Union business VAT IDs.
 
-First objective: perform syntactic validation, which is enough for most.
+## TODO
 
-Second objective: query the VIES to see if the VAT ID actually exists.
+* Make regulax expressions more specific so they can check more state-specific things such are check digits.
+* Add interface with VIES to provide, at which, an online verification of the existence of a VAT ID.

@@ -5,8 +5,8 @@
 //! This crate provides validation of EU *VAT ID*, which is the company
 //! registration number.
 //! 
-//! All countries which have VAT have VAT IDs, so not only European Union
-//! countries. This crate works with **EU VAT IDs only**.
+//! All countries which have Value Added Tax have VAT IDs, so not only
+//! European Union states. This crate works with **EU VAT IDs only**.
 
 #[macro_use] extern crate failure;
 #[macro_use] extern crate lazy_static;
