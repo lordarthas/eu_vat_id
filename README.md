@@ -17,4 +17,4 @@ We implement and pass all tests for the sample VIES IDs:
 * Make regulax expressions more specific so they can check more state-specific things such are check digits.
 * Add interface with VIES to provide, at which, an online verification of the existence of a VAT ID. *This may be a stand-alone crate, as it will need to pull in a few dependencies and I'd prefer this crate to stay light*.
 
-License: MPL-2.0
+License: MIT
